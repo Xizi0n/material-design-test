@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 import {MatMenuModule} from '@angular/material/menu';
@@ -12,11 +13,19 @@ import {MatCardModule} from '@angular/material/card';
 
 
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './header/header.component';
+import { CardListComponent } from './card-list/card-list.component';
+import { CardItemComponent } from './card-item/card-item.component';
+import { HttpClientModule } from '@angular/common/http';
+import { NewsService } from './news.service';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    CardListComponent,
+    CardItemComponent
   ],
   imports: [
     BrowserModule,
@@ -26,9 +35,10 @@ import { AppComponent } from './app.component';
     MatMenuModule,
     MatIconModule,
     MatToolbarModule,
-    MatCardModule
+    MatCardModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ NewsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
